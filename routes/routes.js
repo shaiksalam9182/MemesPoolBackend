@@ -3,6 +3,7 @@ module.exports = (app) =>{
 
     const registerController = require('../controllers/register');
     const loginController = require('../controllers/login');
+    const sendPostController = require('../controllers/sendPost');
 
     app.use(bodyParser.urlencoded({
         extended:true
@@ -17,4 +18,5 @@ module.exports = (app) =>{
 
     app.post('/register',registerController.register);
     app.post('/login',loginController.login);
+    app.post('/sendPost',sendPostController.sendPost);
 }
