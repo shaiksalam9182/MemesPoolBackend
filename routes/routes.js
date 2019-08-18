@@ -1,14 +1,12 @@
 module.exports = (app) => {
     const bodyParser = require('body-parser');
-    const multer = require('multer');
-    const fs = require('fs');
-    const randomString = require('randomstring');
-    const path = require('path');
 
     const registerController = require('../controllers/register');
     const loginController = require('../controllers/login');
     const sendPostController = require('../controllers/sendPost');
     const uploadController = require('../controllers/imgUpload');
+    const getImageController = require('../controllers/getImage');
+    const likePostController = require('../controllers/likePost');
 
     app.use(bodyParser.urlencoded({
         extended: true
@@ -20,4 +18,7 @@ module.exports = (app) => {
     app.post('/login', loginController.login);
     app.post('/sendPost', sendPostController.sendPost);
     app.post('/upload',uploadController.upload);
+    app.get('/getImage/:name',getImageController.getImage);
+    app.post('/like',likePostController.likePost);
+
 }
