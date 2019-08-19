@@ -7,6 +7,7 @@ module.exports = (app) => {
     const uploadController = require('../controllers/imgUpload');
     const getImageController = require('../controllers/getImage');
     const likePostController = require('../controllers/likePost');
+    const feedController = require('../controllers/feed');
 
     app.use(bodyParser.urlencoded({
         extended: true
@@ -20,5 +21,6 @@ module.exports = (app) => {
     app.post('/upload',uploadController.upload);
     app.get('/getImage/:name',getImageController.getImage);
     app.post('/like',likePostController.likePost);
+    app.post('/feed',feedController.getFeed);
 
 }

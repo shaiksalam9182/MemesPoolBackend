@@ -17,6 +17,7 @@ exports.sendPost = (req,res) =>{
     }
 
     tokenVerifier.validateToken(req.body.user_id,req.body.token).then(data=>{
+        console.log(req.body.image)
         savePost(req,res);
     }).catch(err=>{
         console.log(err);
