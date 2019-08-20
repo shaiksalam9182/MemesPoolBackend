@@ -9,4 +9,6 @@ const postSchema = mongoose.Schema({
     likes:Array,
 })
 
+postSchema.index({description:"text"});
+
 module.exports = mongoose.model('posts',postSchema);
