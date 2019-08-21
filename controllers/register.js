@@ -41,7 +41,8 @@ function register(req,res){
             fcm_token : req.body.fcm_token,
             web_token : req.body.web_token,
             user_id:user_id,
-            no_of_posts:0
+            no_of_posts:0,
+            profile_pic:req.body.profile_pic
         })
 
         register.save().then(data=>{
