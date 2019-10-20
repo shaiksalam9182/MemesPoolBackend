@@ -1,5 +1,6 @@
 module.exports = (app) => {
     const bodyParser = require('body-parser');
+    const cors = require('cors');
 
     const registerController = require('../controllers/register');
     const loginController = require('../controllers/login');
@@ -19,6 +20,8 @@ module.exports = (app) => {
     }))
 
     app.use(bodyParser.json());
+    app.use(cors());
+
 
     app.post('/register', registerController.register);
     app.post('/login', loginController.login);
