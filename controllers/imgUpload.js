@@ -5,7 +5,7 @@ const path = require('path');
 
 
 var storage = multer.diskStorage({
-    destination:"/uploads",
+    destination:"/home/shaiksalam9182/uploads/",
     filename: function (req, file, cb) {
         var generatedName = randomString.generate(16) + path.extname(file.originalname);
         console.log(generatedName);
