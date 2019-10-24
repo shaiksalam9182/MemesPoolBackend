@@ -42,7 +42,8 @@ function register(req,res){
             web_token : req.body.web_token,
             user_id:user_id,
             no_of_posts:0,
-            profile_pic:req.body.profile_pic
+            profile_pic:req.body.profile_pic,
+            verified:0
         })
 
         register.save().then(data=>{

@@ -8,7 +8,8 @@ const userSchema = mongoose.Schema({
     web_token:String,
     user_id:String,
     no_of_posts:Number,
-    profile_pic:String
+    profile_pic:String,
+    verified:Number
 },{
     timestamps:true
 })
