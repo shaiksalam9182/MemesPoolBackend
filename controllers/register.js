@@ -49,7 +49,8 @@ function register(req,res){
         register.save().then(data=>{
             res.status(200).send({
                 success:true,
-                message:'Successfully registered'
+                message:'Successfully registered',
+                user_id:data.user_id
             })
         }).catch(err=>{
             sendFailedResponse(req,res,err.message);
