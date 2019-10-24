@@ -13,6 +13,7 @@ module.exports = (app) => {
     const readNotificationsController = require('../controllers/readNotifications');
     const accountDetailsController = require('../controllers/accountDetails');
     const searchController = require('../controllers/search');
+    const verifyEmail = require('../controllers/verifyEmail');
 
 
     app.use(bodyParser.urlencoded({
@@ -34,5 +35,6 @@ module.exports = (app) => {
     app.post('/read_not',readNotificationsController.readNotifications);
     app.post('/account',accountDetailsController.accountDetails);
     app.post('/search',searchController.search);
+    app.get('/verify/:uid',verifyEmail.verifyEmail);
 
 }
