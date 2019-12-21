@@ -14,6 +14,14 @@ module.exports = (app) => {
     const accountDetailsController = require('../controllers/accountDetails');
     const searchController = require('../controllers/search');
     const verifyEmail = require('../controllers/verifyEmail');
+    const Multer = require('multer');
+
+    const multer = Multer({
+        storage: Multer.MemoryStorage,
+        limits: {
+            fileSize: 2 * 1024 * 1024,
+        },
+    });
 
 
     app.use(bodyParser.urlencoded({
@@ -27,14 +35,14 @@ module.exports = (app) => {
     app.post('/register', registerController.register);
     app.post('/login', loginController.login);
     app.post('/sendPost', sendPostController.sendPost);
-    app.post('/upload',uploadController.upload);
-    app.get('/getImage/:name',getImageController.getImage);
-    app.post('/like',likePostController.likePost);
-    app.post('/feed',feedController.getFeed);
-    app.post('/send_not',saveNotificationController.sendNotification);
-    app.post('/read_not',readNotificationsController.readNotifications);
-    app.post('/account',accountDetailsController.accountDetails);
-    app.post('/search',searchController.search);
-    app.get('/verify/:uid',verifyEmail.verifyEmail);
+    app.post('/upload', multer.single('image'), uploadController.upload);
+    app.get('/getImage/:name', getImageController.getImage);
+    app.post('/like', likePostController.likePost);
+    app.post('/feed', feedController.getFeed);
+    app.post('/send_not', saveNotificationController.sendNotification);
+    app.post('/read_not', readNotificationsController.readNotifications);
+    app.post('/account', accountDetailsController.accountDetails);
+    app.post('/search', searchController.search);
+    app.get('/verify/:uid', verifyEmail.verifyEmail);
 
 }
