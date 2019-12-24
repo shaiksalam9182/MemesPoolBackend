@@ -31,7 +31,7 @@ exports.upload = (req, res) => {
     stream.on('finish', () => {
         return res.status(200).send({
             success: true,
-            image_url: "https://storage.cloud.google.com/images_memespool/" + filename
+            image_url: "https://storage.googleapis.com//images_memespool/" + filename
         })
     })
 
