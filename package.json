@@ -17,6 +17,7 @@
     },
     "homepage": "https://github.com/shaiksalam9182/MemesPoolBackend#readme",
     "dependencies": {
+        "@google-cloud/firestore": "^3.3.0",
         "@google-cloud/storage": "^4.1.3",
         "bcrypt": "^3.0.7",
         "body-parser": "^1.19.0",
@@ -31,5 +32,4 @@
     "engines": {
         "node": "8"
     }
-
 }
