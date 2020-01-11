@@ -28,7 +28,6 @@ function readAllNotifications(req, res) {
     var receiveddata = [];
     dbConnection.db.collection('notifications').where('send_to', "in", [req.body.user_id, "all"]).get()
         .then(data => {
-            console.log(data);
             if (data) {
                 data.forEach(doc => {
                     receiveddata.push(doc.data());
